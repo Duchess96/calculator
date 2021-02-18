@@ -49,23 +49,28 @@ function divide(a, b){
 }
 
 
-function operationsFunc (op,num1,num2){
+function operationsFunc (op,firstNum,secNum){
 
     switch(op){
         case '+':
-            return add(num1, num2);
+            return add(firstNum, secNum);
             break;
         case '-':
-            return subtract(num1, num2);
+            return subtract(firstNum, secNum);
             break;
-        case '*':
-            return multiply(num1, num2);
+        case 'X':
+            return multiply(firstNum, secNum);
             break;
         case '/':
-            return divide(num1, num2);
+            return divide(firstNum, secNum);
             break;
     }
 
+}
+function evaluate(op,firstNum,secNum){
+    let results = operationsFunc(op,firstNum,secNum);
+    output.textContent = "= " + results;
+    console.log(results);
 }
 buttons.forEach((button) => 
     button.addEventListener('click', () => 
@@ -98,7 +103,7 @@ buttons.forEach((button) =>
         }
         else if (button.id == "enter")
         {
-            evaluate(op,firstA,secA);
+            evaluate(op,firstNum,secNum);
             console.log("enter");
         }
         
